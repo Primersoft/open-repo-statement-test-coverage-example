@@ -1,4 +1,4 @@
-const calculateCartTotal = require('../src/shoppingCart')
+const calculateCartTotal = require('../../src/shoppingCart')
 
 describe('calculateCartTotal', () => {
 	test('throws an error for an empty items list', () => {

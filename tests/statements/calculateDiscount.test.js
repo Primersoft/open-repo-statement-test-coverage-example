@@ -1,4 +1,4 @@
-const calculateDiscount = require('../src/calculateDiscount')
+const calculateDiscount = require('../../src/calculateDiscount')
 
 describe('calculateDiscount', () => {
 	test('throws an error for invalid price', () => {

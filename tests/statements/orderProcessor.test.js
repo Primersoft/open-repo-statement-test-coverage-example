@@ -1,4 +1,4 @@
-const processOrder = require('../src/orderProcessor')
+const processOrder = require('../../src/orderProcessor')
 
 describe('processOrder', () => {
 	test('throws an error for an invalid order', () => {
