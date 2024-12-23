@@ -1,0 +1,35 @@
+name: Run QA Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  run-tests:
+    name: Run QA Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        platform: [ios, android, web]
+
+    steps:
+      # Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Replace with your Node.js version if needed
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run tests
+      - name: Run QA Tests
+        run: npm run test
