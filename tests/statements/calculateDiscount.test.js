@@ -1,4 +1,5 @@
 const calculateDiscount = require('../../src/calculateDiscount')
+const processOrder = require('../../src/orderProcessor')
 
 describe('calculateDiscount', () => {
 	test('throws an error for invalid price', () => {
