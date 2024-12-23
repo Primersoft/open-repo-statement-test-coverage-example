@@ -11,9 +11,6 @@ jobs:
     name: Run QA Tests
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        platform: [ios, android, web]
 
     steps:
       # Checkout code
