@@ -7,10 +7,9 @@ on:
   pull_request:
 
 jobs:
-  run-tests:
-    name: Run QA Tests
+  unit-tests:
+    name: Run Unit Tests
     runs-on: ubuntu-latest
-
 
     steps:
       # Checkout code
@@ -21,12 +20,58 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Replace with your Node.js version if needed
+          node-version: '16'
 
       # Install dependencies
       - name: Install Dependencies
         run: npm install
 
-      # Run tests
-      - name: Run QA Tests
-        run: npm run test
+      # Run Unit Tests
+      - name: Run Unit Tests
+        run: npm run test:unit
+
+  integration-tests:
+    name: Run Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run Integration Tests
+      - name: Run Integration Tests
+        run: npm run test:integration
+
+  statement-tests:
+    name: Run Statement Coverage Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run Statement Coverage Tests
+      - name: Run Statement Coverage Tests
+        run: npm run test:statement

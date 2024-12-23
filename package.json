@@ -3,7 +3,10 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest --coverage"
+		"test": "jest --coverage",
+		"test:unit": "jest --testPathPattern=tests/units",
+		"test:integration": "jest --testPathPattern=tests/integration",
+		"test:statement": "jest --testPathPattern=tests/statements"
 	},
 	"keywords": [],
 	"author": "",
