@@ -29,5 +29,26 @@ describe('processOrder', () => {
 		expect(processOrder(order)).toBe(450) // 10% discount
 	})
 
-	// Note: No test case for "New" customer surcharge or totalAmount > 1000
+	test('TC-14 Standard Short Trip: regular customer without extra conditions', () => {
+		const order = {
+			items: [{ name: 'shortTripFare', price: 20, quantity: 2 }],
+			customerType: 'Regular',
+		}
+
+		expect(processOrder(order)).toBe(40)
+	})
+
+	test('TC-15 Premium Long Trip: VIP discount with large-order path', () => {
+		const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {})
+
+		const order = {
+			items: [{ name: 'premiumLongTripFare', price: 150, quantity: 10 }],
+			customerType: 'VIP',
+		}
+
+		expect(processOrder(order)).toBe(1350)
+		expect(logSpy).toHaveBeenCalledWith('Large order processed')
+
+		logSpy.mockRestore()
+	})
 })

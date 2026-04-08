@@ -4,9 +4,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest --coverage",
-		"test:unit": "jest --testPathPattern=tests/units",
-		"test:integration": "jest --testPathPattern=tests/integration",
-		"test:statement": "jest --testPathPattern=tests/statements"
+		"test:unit": "jest --testPathPattern=tests/units --coverage",
+		"test:integration": "jest --testPathPattern=tests/integration --coverage",
+		"test:statement": "jest --testPathPattern=tests/statements --coverage"
 	},
 	"keywords": [],
 	"author": "",
